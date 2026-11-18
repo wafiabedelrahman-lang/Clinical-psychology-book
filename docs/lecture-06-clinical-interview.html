@@ -1,0 +1,706 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>المقابلة الإكلينيكية</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Tajawal:wght@500;700;800&display=swap">
+<style>
+/* Layout: a single reading column with colour-coded boxes for definitions, rules, examples and warnings. */
+:root {
+  --bg: #F6F4EE;
+  --surface: #FFFFFF;
+  --ink: #1B2A41;
+  --muted: #56617A;
+  --line: #E0DBD0;
+  --brand: #0F5F5A;
+  --brand-soft: #DFF1EE;
+  --def: #1D4ED8;   --def-soft: #E6EEFD;
+  --rule: #B45309;  --rule-soft: #FDF1DE;
+  --ex: #166534;    --ex-soft: #E5F4EA;
+  --warn: #9F1239;  --warn-soft: #FBE6EC;
+  --story: #5B21B6; --story-soft: #EEE9FC;
+  --display: "Tajawal", "IBM Plex Sans Arabic", system-ui, sans-serif;
+  --body: "IBM Plex Sans Arabic", "Tajawal", system-ui, sans-serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0E1620;
+    --surface: #152130;
+    --ink: #E8EDF4;
+    --muted: #A3AEC0;
+    --line: #2A3850;
+    --brand: #5FD0C4;
+    --brand-soft: #123330;
+    --def: #8AB4FF;   --def-soft: #15243F;
+    --rule: #F2B25C;  --rule-soft: #33260F;
+    --ex: #7FDBA0;    --ex-soft: #13291C;
+    --warn: #FF9DB8;  --warn-soft: #3A1523;
+    --story: #C7B2FF; --story-soft: #231A3F;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0E1620;
+  --surface: #152130;
+  --ink: #E8EDF4;
+  --muted: #A3AEC0;
+  --line: #2A3850;
+  --brand: #5FD0C4;
+  --brand-soft: #123330;
+  --def: #8AB4FF;   --def-soft: #15243F;
+  --rule: #F2B25C;  --rule-soft: #33260F;
+  --ex: #7FDBA0;    --ex-soft: #13291C;
+  --warn: #FF9DB8;  --warn-soft: #3A1523;
+  --story: #C7B2FF; --story-soft: #231A3F;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 16px;
+  line-height: 1.85;
+  padding-inline: max(16px, env(safe-area-inset-left, 0px)) max(16px, env(safe-area-inset-right, 0px));
+}
+body::before {
+  content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px);
+  z-index: 10; background: var(--brand);
+}
+.page { max-width: 860px; margin: 0 auto; padding-block: 24px 64px; }
+h1, h2, h3 { font-family: var(--display); line-height: 1.3; text-wrap: balance; margin: 0; }
+p { margin: 0 0 12px; max-width: 65ch; }
+ul, ol { margin: 0 0 12px; padding-inline-start: 1.4em; }
+li { margin-bottom: 6px; }
+strong { font-weight: 700; }
+
+/* Identity header */
+.masthead {
+  background: var(--brand); color: #fff; border-radius: 20px; padding: 32px 28px;
+  position: relative; overflow: hidden;
+}
+.masthead::after {
+  content: ""; position: absolute; inset-inline-end: -40px; top: -40px; width: 180px; height: 180px;
+  border: 22px solid rgba(255,255,255,.14); border-radius: 50%;
+}
+.masthead::before {
+  content: ""; position: absolute; inset-inline-end: 96px; bottom: -28px; width: 84px; height: 84px;
+  background: rgba(255,255,255,.12); transform: rotate(45deg);
+}
+.kicker { font-family: var(--display); font-weight: 700; letter-spacing: .02em; opacity: .9; margin: 0 0 6px; font-size: 15px; }
+.masthead h1 { font-size: clamp(28px, 6vw, 40px); font-weight: 800; position: relative; z-index: 1; }
+.masthead .sub { margin: 10px 0 0; opacity: .92; position: relative; z-index: 1; max-width: 60ch; }
+.meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; position: relative; z-index: 1; }
+.chip {
+  font-size: 13px; padding: 4px 12px; border-radius: 999px; background: rgba(255,255,255,.16); color: #fff;
+}
+
+/* Contents */
+.toc {
+  margin: 20px 0 8px; background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 18px 20px;
+}
+.toc h2 { font-size: 17px; margin-bottom: 10px; color: var(--brand); }
+.toc ol { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 6px 16px; list-style: none; padding: 0; margin: 0; counter-reset: t; }
+.toc a { color: var(--ink); text-decoration: none; display: flex; gap: 10px; align-items: center; padding: 6px 4px; border-radius: 8px; }
+.toc a:hover, .toc a:focus-visible { background: var(--brand-soft); outline: none; }
+.toc a::before {
+  content: counter(t); counter-increment: t; flex: 0 0 26px; height: 26px; border-radius: 8px;
+  background: var(--brand-soft); color: var(--brand); font-weight: 700; display: grid; place-items: center; font-size: 13px;
+}
+
+/* Sections */
+section.unit { margin-top: 44px; scroll-margin-top: 16px; }
+.unit-head { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
+.unit-head .badge {
+  flex: 0 0 52px; height: 52px; display: grid; place-items: center; background: var(--ink); color: var(--bg);
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+  font-family: var(--display); font-weight: 800; font-size: 20px;
+}
+.unit-head h2 { font-size: 26px; font-weight: 800; }
+
+/* Coloured boxes */
+.box {
+  border-radius: 16px; padding: 18px 20px 16px; margin: 16px 0; border: 1px solid var(--line);
+  background: var(--surface); position: relative; border-inline-start-width: 6px;
+}
+.box > .label {
+  display: flex; align-items: center; gap: 8px; font-family: var(--display); font-weight: 800; font-size: 15px;
+  margin-bottom: 8px;
+}
+.box > .label svg { width: 18px; height: 18px; flex: 0 0 18px; }
+.box.def   { border-inline-start-color: var(--def);   background: var(--def-soft);   } .box.def > .label   { color: var(--def); }
+.box.rule  { border-inline-start-color: var(--rule);  background: var(--rule-soft);  } .box.rule > .label  { color: var(--rule); }
+.box.ex    { border-inline-start-color: var(--ex);    background: var(--ex-soft);    } .box.ex > .label    { color: var(--ex); }
+.box.warn  { border-inline-start-color: var(--warn);  background: var(--warn-soft);  } .box.warn > .label  { color: var(--warn); }
+.box.story { border-inline-start-color: var(--story); background: var(--story-soft); } .box.story > .label { color: var(--story); }
+.box ul:last-child, .box p:last-child { margin-bottom: 0; }
+
+/* Three-type cards */
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin: 16px 0; }
+.card {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 18px; min-width: 0;
+}
+.card .shape { width: 44px; height: 44px; margin-bottom: 12px; }
+.card h3 { font-size: 19px; margin-bottom: 6px; }
+.card .tag { font-size: 13px; color: var(--muted); margin-bottom: 8px; }
+.card p { font-size: 15px; }
+
+/* Spectrum bar */
+.spectrum { margin: 18px 0 6px; }
+.spectrum .bar {
+  height: 14px; border-radius: 999px;
+  background: linear-gradient(to left, var(--brand), var(--def), var(--story));
+}
+.spectrum .ends { display: flex; justify-content: space-between; font-size: 14px; color: var(--muted); margin-top: 8px; font-family: var(--display); font-weight: 700; }
+
+/* Process flow */
+.flow { list-style: none; padding: 0; margin: 18px 0; display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); counter-reset: st; }
+.flow li {
+  margin: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 16px; min-width: 0; position: relative;
+}
+.flow .dot {
+  width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; font-family: var(--display); font-weight: 800;
+  color: #fff; background: var(--brand); margin-bottom: 10px;
+}
+.flow li:nth-child(3n+2) .dot { background: var(--def); }
+.flow li:nth-child(3n) .dot { background: var(--story); }
+.flow h3 { font-size: 17px; margin-bottom: 6px; }
+.flow p { font-size: 14.5px; margin: 0; }
+
+/* Criteria */
+.criteria { list-style: none; padding: 0; margin: 14px 0; display: grid; gap: 10px; }
+.criteria li {
+  display: flex; gap: 14px; align-items: center; background: var(--surface); border: 1px solid var(--line);
+  border-radius: 14px; padding: 12px 16px; margin: 0;
+}
+.criteria .sq {
+  flex: 0 0 38px; height: 38px; background: var(--brand); color: #fff; border-radius: 10px; display: grid; place-items: center;
+  font-family: var(--display); font-weight: 800; font-size: 17px;
+}
+.criteria li:nth-child(even) .sq { background: var(--rule); }
+.criteria strong { font-family: var(--display); font-size: 17px; }
+
+/* Functions as pills */
+.pills { display: flex; flex-wrap: wrap; gap: 10px; margin: 14px 0; }
+.pill {
+  display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 999px;
+  background: var(--surface); border: 1.5px solid var(--brand); color: var(--ink); font-weight: 600; font-size: 15px;
+}
+.pill::before { content: ""; width: 10px; height: 10px; background: var(--brand); border-radius: 3px; transform: rotate(45deg); }
+
+/* Questions and activities */
+.qa { counter-reset: q; list-style: none; padding: 0; margin: 14px 0; display: grid; gap: 10px; }
+.qa li {
+  counter-increment: q; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px 14px 56px; margin: 0; position: relative;
+}
+.qa li::before {
+  content: counter(q); position: absolute; inset-inline-start: 14px; top: 14px; width: 28px; height: 28px; border-radius: 8px;
+  background: var(--rule-soft); color: var(--rule); font-family: var(--display); font-weight: 800; display: grid; place-items: center;
+}
+.activities { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); margin: 14px 0; }
+.activities .box { margin: 0; }
+
+.note { font-size: 14px; color: var(--muted); border-top: 1px dashed var(--line); padding-top: 14px; margin-top: 40px; }
+
+a { color: var(--brand); }
+:focus-visible { outline: 3px solid var(--def); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+@media (max-width: 480px) {
+  .masthead { padding: 24px 20px; border-radius: 16px; }
+  .unit-head h2 { font-size: 22px; }
+}
+</style>
+</head>
+<body>
+<main class="page">
+
+  <header class="masthead">
+    <p class="kicker">دليل علم النفس الإكلينيكي · المحاضرة السادسة</p>
+    <h1>المقابلة الإكلينيكية</h1>
+    <p class="sub">المقابلة جزء أساسي من أي عملية إكلينيكية: في الفحص والمتابعة والتشخيص والعلاج. وهي تتطلب مهارة في الاتصال وفهم السلوك الإنساني وحسن التصرف في الوقت المناسب.</p>
+    <div class="meta">
+      <span class="chip">التعريف والأهمية</span>
+      <span class="chip">الوظائف</span>
+      <span class="chip">الأشكال</span>
+      <span class="chip">المراحل</span>
+      <span class="chip">المحكات الخمسة</span>
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="محتويات المحاضرة">
+    <h2>محتويات المحاضرة</h2>
+    <ol>
+      <li><a href="#u1">تمهيد: لماذا المقابلة؟</a></li>
+      <li><a href="#u2">تعريف المقابلة وأهميتها</a></li>
+      <li><a href="#u3">الهدف والوظائف</a></li>
+      <li><a href="#u4">السرية والموافقة</a></li>
+      <li><a href="#u5">أشكال المقابلة</a></li>
+      <li><a href="#u6">الأسئلة المفتوحة والمغلقة</a></li>
+      <li><a href="#u7">مراحل المقابلة</a></li>
+      <li><a href="#u8">المحكات الخمسة</a></li>
+      <li><a href="#u9">مهارات مساندة</a></li>
+      <li><a href="#u10">أسئلة وأنشطة</a></li>
+    </ol>
+  </nav>
+
+  <!-- 1 -->
+  <section class="unit" id="u1">
+    <div class="unit-head"><div class="badge">1</div><h2>تمهيد: لماذا المقابلة؟</h2></div>
+    <p>المقابلة الإكلينيكية موضوع محوري في العمل النفسي، فهي حاضرة في كل مراحل العمل الإكلينيكي. ومجرد وجود مساق لمهارات المقابلة الإرشادية في الخطة الدراسية يدل على أن إتقانها مقصود.</p>
+
+    <div class="box rule">
+      <div class="label">
+        <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5 18.5 10 10 18.5 1.5 10Z" fill="currentColor"/></svg>
+        قاعدة مهمة
+      </div>
+      <p>لا يمكن أن تكون هناك عملية علاجية نفسية دون مقابلة. والمقابلة هنا لا تشترط الحضور المباشر، فقد تكون عبر الإنترنت أو بوسيلة اتصال أخرى.</p>
+    </div>
+
+    <div class="box ex">
+      <div class="label">
+        <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="8.5" fill="currentColor"/></svg>
+        مثال: الفرق بين الطب والعلاج النفسي
+      </div>
+      <p>في الطب يطلب الطبيب رؤية المريض مهما كانت الأعراض واضحة والتشخيص سهلًا، وقد يصف العلاج بالتوصية. أما في العمل النفسي فلا يمكن تقديم العلاج عن بُعد أو بالتوصية وحدها دون مقابلة.</p>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section class="unit" id="u2">
+    <div class="unit-head"><div class="badge">2</div><h2>تعريف المقابلة وأهميتها</h2></div>
+
+    <div class="box def">
+      <div class="label">
+        <svg viewBox="0 0 20 20" aria-hidden="true"><rect x="2.5" y="2.5" width="15" height="15" rx="2" fill="currentColor"/></svg>
+        تعريف
+      </div>
+      <p><strong>المقابلة</strong> لقاء بين شخصين أو أكثر، تتبادل فيه المعلومات لفظيًا وغير لفظي. (باركر Barker)</p>
+    </div>
+
+    <p>يذكر المحاضر أن <strong>سول جارفيلد</strong> (Sol Garfield) من أبرز من كتبوا في الموضوع، وأن أهمية المقابلة تنبع من تطبيقاتها الواسعة التشخيصية والعلاجية. ويعتمد نجاح الفحص والعلاج على مهارة القائم بالمقابلة وخبرته ومعرفته بالسلوك الإنساني، وعلى قدرته على حسن الاتصال.</p>
+
+    <div class="box story">
+      <div class="label">
+        <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2 18 10 10 18 2 10Z" fill="currentColor" opacity=".5"/><circle cx="10" cy="10" r="3" fill="currentColor"/></svg>
+        ما الذي تلاحظه في المقابلة؟
+      </div>
+      <p>المقابلة الناجحة تتطلب القدرة على التشخيص العميق لما يُقال وما وراء الكلام، وملاحظة الأسلوب والإيحاءات وتعبيرات الوجه.</p>
+    </div>
+
+    <h3 style="margin:18px 0 8px">ما الذي تتطلبه المقابلة من الأخصائي؟</h3>
+    <div class="pills">
+      <span class="pill">قيادة الحوار</span>
+      <span class="pill">كسب الثقة</span>
+      <span class="pill">الإنصات والملاحظة</span>
+      <span class="pill">التوقيت المناسب</span>
+    </div>
+
+    <div class="box warn">
+      <div class="label">
+        <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2 19 18H1Z" fill="currentColor"/></svg>
+        تنبيه: الإرهاق بعد المقابلة طبيعي
+      </div>
+      <p>تتطلب المقابلة تركيزًا عاليًا ويقظة ذهنية، ولهذا يشعر المعالج بعدها بإرهاق. ويفسر المحاضر بذلك ارتفاع أجور الجلسات النفسية في بعض الدول الأوروبية، لأن المعالج يستنفد فيها طاقته وتركيزه وعلمه وخبرته كلها.</p>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section class="unit" id="u3">
+    <div class="unit-head"><div class="badge">3</div><h2>الهدف والوظائف</h2></div>
+
+    <div class="box rule">
+      <div class="label">
+        <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5 18.5 10 10 18.5 1.5 10Z" fill="currentColor"/></svg>
+        قاعدة مهمة
+      </div>
+      <p>المقابلة الناجحة لها <strong>هدف جاد</strong> يوجَّه الحوار نحوه، ويشارك فيه المفحوص ويسهم في تحقيقه. والأخصائي مسؤول عن توجيه المقابلة نحو هذا الهدف، ولا يترك الحوار يتسع دون ضابط.</p>
+    </div>
+
+    <h3 style="margin:18px 0 4px">وظائف المقابلة الإكلينيكية</h3>
+    <div class="pills">
+      <span class="pill">التشخيص</span>
+      <span class="pill">العلاج</span>
+      <span class="pill">البحث العلمي</span>
+      <span class="pill">تقديم المعلومات</span>
+      <span class="pill">التدريب والتعليم</span>
+      <span class="pill">التوجيه المهني والتربوي</span>
+      <span class="pill">الاستشارة النفسية</span>
+    </div>
+
+    <div class="box ex">
+      <div class="label">
+        <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="8.5" fill="currentColor"/></svg>
+        مثال: وظائف متداخلة في الجلسة الواحدة
+      </div>
+      <p>قد تشخّص وتعالج في الوقت نفسه، وقد تجمع معلومات للبحث وتقدم استشارة مهنية في المقابلة ذاتها. فالتشخيص والعلاج يتلازمان طوال العملية.</p>
+    </div>
+
+    <h3 style="margin:18px 0 8px">مع من تُجرى المقابلة؟</h3>
+    <div class="cards">
+      <div class="card">
+        <svg class="shape" viewBox="0 0 44 44" aria-hidden="true"><rect x="4" y="4" width="36" height="36" rx="8" fill="var(--def)"/></svg>
+        <h3>المريض نفسه</h3>
+        <p>بحضوره أو في غيابه، بحسب الحاجة.</p>
+      </div>
+      <div class="card">
+        <svg class="shape" viewBox="0 0 44 44" aria-hidden="true"><path d="M22 4 40 40H4Z" fill="var(--rule)"/></svg>
+        <h3>الأسرة والمحيطون</h3>
+        <p>الوالدان أو الإخوة أو الأقارب، مع إذن المريض.</p>
+      </div>
+      <div class="card">
+        <svg class="shape" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="18" fill="var(--ex)"/></svg>
+        <h3>المدرسة والأصدقاء</h3>
+        <p>المعلم أو الصديق، وذلك حسب طبيعة الحالة.</p>
+      </div>
+    </div>
+
+    <div class="box story">
+      <div class="label">
+        <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2 18 10 10 18 2 10Z" fill="currentColor" opacity=".5"/><circle cx="10" cy="10" r="3" fill="currentColor"/></svg>
+        من المحاضرة: حالة لديها محاولة انتحار سابقة
+      </div>
+      <p>يقابل الأخصائي المريض ويجمع بياناته، ثم يتواصل مع أبيه أو أخيه أو عمه أو أمه أو صديقه، ويسأل عن الإذن أولًا قبل أخذ المعلومات. ويلتزم بعدم البوح بما أفضى به المريض، فلا ينقل ما قاله بصورة تفضحه أو تضر بالثقة بينهما.</p>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section class="unit" id="u4">
+    <div class="unit-head"><div class="badge">4</div><h2>السرية والموافقة والتصوير</h2></div>
+
+    <div class="box rule">
+      <div class="label">
+        <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5 18.5 10 10 18.5 1.5 10Z" fill="currentColor"/></svg>
+        قواعد مهمة
+      </div>
+      <ul>
+        <li><strong>السرية:</strong> لا يبوح الأخصائي بما يُفضي به المريض، إلا في الحدود التي يسمح بها القانون والمهنة.</li>
+        <li><strong>جمع المعلومات من الأسرة:</strong> يُوضَّح للمريض ما الذي سيُشارَك وما الذي لن يُشارَك.</li>
+        <li><strong>توزيع المعلومات:</strong> بعد جمعها يُستشار المستفيد: ما الذي يُعرض على من؟ وهل تفيده هذه المعلومة أن يعلمها أهله؟</li>
+      </ul>
+    </div>
+
+    <div class="box warn">
+      <div class="label">
+        <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2 19 18H1Z" fill="currentColor"/></svg>
+        تنبيه: التصوير يحتاج تصريحًا كتابيًا
+      </div>
+      <p>إذا أراد الأخصائي تسجيل الجلسة أو تصويرها أو أخذ صورة للتوثيق أو للنشر، فيلزم تصريح كتابي موقَّع من المريض يحدد: تفاصيل المعلومات المصرّح بها، ولمن، ولمدة محددة من الصلاحية.</p>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section class="unit" id="u5">
+    <div class="unit-head"><div class="badge">5</div><h2>أشكال المقابلة</h2></div>
+    <p>تختلف أشكال المقابلة بحسب درجة <strong>الضبط والتقنين</strong>، وبحسب <strong>الحرية المتاحة للأخصائي</strong> في اختيار الموضوعات والأسئلة.</p>
+
+    <div class="spectrum" aria-label="طيف الضبط من المقننة إلى الحرة">
+      <div class="bar"></div>
+      <div class="ends"><span>مقننة: ضبط كامل</span><span>حرة: مرونة كاملة</span></div>
+    </div>
+
+    <div class="cards">
+      <div class="card">
+        <svg class="shape" viewBox="0 0 44 44" aria-hidden="true"><rect x="4" y="4" width="36" height="36" rx="4" fill="var(--brand)"/><path d="M12 22h20M12 15h20M12 29h12" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg>
+        <h3>المقننة</h3>
+        <div class="tag">Structured</div>
+        <p>أسئلة مكتوبة ثابتة لا تتغير ولا تنحرف، تُستخدم لقياس أشياء محددة وللحصول على استجابات متماثلة، وغالبًا في البحث. مثل تقييم المخاطر والسلامة.</p>
+      </div>
+      <div class="card">
+        <svg class="shape" viewBox="0 0 44 44" aria-hidden="true"><path d="M22 4 40 40H4Z" fill="var(--def)"/></svg>
+        <h3>المنظمة</h3>
+        <div class="tag">Semi-structured</div>
+        <p>لا توجد أسئلة لا يمكن الخروج عنها، لكن للأخصائي موضوعات ذات تسلسل واضح كالتاريخ الأسري، وأسئلة مفتوحة موجهة لتكوين صورة متكاملة.</p>
+      </div>
+      <div class="card">
+        <svg class="shape" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="18" fill="var(--story)"/></svg>
+        <h3>الحرة</h3>
+        <div class="tag">Unstructured</div>
+        <p>لا أسئلة محددة ولا محددات واضحة، وتُستخدم غالبًا في البداية حين لا يكون للأخصائي تصور مسبق، فيترك المستفيد يتوجه بنفسه.</p>
+      </div>
+    </div>
+
+    <div class="box ex">
+      <div class="label">
+        <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="8.5" fill="currentColor"/></svg>
+        مثال على المقابلة المنظمة
+      </div>
+      <p>«اليوم سنتحدث عن علاقتك الأسرية: كيف تشعر تجاه علاقتك بأهلك؟ ومن أقرب إخوانك إليك؟»</p>
+    </div>
+
+    <div class="box warn">
+      <div class="label">
+        <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2 19 18H1Z" fill="currentColor"/></svg>
+        تنبيه: لا تبدأ بالمقننة في الجلسات الأولى
+      </div>
+      <p>البدء بمقابلة مقننة دون تمهيد يُشعر المستفيد بأنه يُستجوب. الأفضل أن تبدأ بمقابلة حرة لبناء الثقة، ثم تتحول تدريجيًا إلى المنظمة، ثم تطبّق المقياس المقنن عند الحاجة.</p>
+    </div>
+
+    <div class="box story">
+      <div class="label">
+        <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2 18 10 10 18 2 10Z" fill="currentColor" opacity=".5"/><circle cx="10" cy="10" r="3" fill="currentColor"/></svg>
+        مثال على الدمج بين الأشكال
+      </div>
+      <p>يبدأ الأخصائي بالمقابلة الحرة، ثم ينتقل إلى المنظمة لجمع البيانات، ثم يقول للمستفيد: «نريد أن نطبق مقياس بيك للاكتئاب لنعرف درجة الحزن لديك».</p>
+    </div>
+
+    <h3 style="margin:18px 0 8px">مثال: تقييم المخاطر في المقابلة المقننة</h3>
+    <ol class="qa">
+      <li>أفكار انتحارية حالية؟</li>
+      <li>هل لديك خطة للانتحار؟ وما وسيلتها؟</li>
+      <li>هل تتوفر لديك الوسيلة؟</li>
+      <li>هل سبق أن حاولت الانتحار؟</li>
+      <li>هل آذيت نفسك خلال الـ 24 ساعة الماضية؟</li>
+    </ol>
+    <div class="box warn">
+      <div class="label">
+        <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2 19 18H1Z" fill="currentColor"/></svg>
+        تقدير الخطورة
+      </div>
+      <p>إذا كانت الإجابة بنعم في البنود الأولى والثانية والثالثة، فالخطورة مرتفعة جدًا. وإذا كانت الإجابات بنعم في بنود أخرى، فيُقدَّر مستوى الخطورة بحسبها.</p>
+    </div>
+  </section>
+
+  <!-- 6 -->
+  <section class="unit" id="u6">
+    <div class="unit-head"><div class="badge">6</div><h2>الأسئلة المفتوحة والمغلقة</h2></div>
+
+    <div class="box def">
+      <div class="label">
+        <svg viewBox="0 0 20 20" aria-hidden="true"><rect x="2.5" y="2.5" width="15" height="15" rx="2" fill="currentColor"/></svg>
+        الأسئلة المفتوحة
+      </div>
+      <p>تتيح للمستفيد أن يتحدث بحرية ويعطي أكبر قدر من المعلومات، وتجعل الجو طبيعيًا.</p>
+    </div>
+
+    <div class="box def">
+      <div class="label">
+        <svg viewBox="0 0 20 20" aria-hidden="true"><rect x="2.5" y="2.5" width="15" height="15" rx="2" fill="currentColor"/></svg>
+        الأسئلة المغلقة
+      </div>
+      <p>تفيد مع المرضى الشكّاكين أو ذوي النزعة الدفاعية، إذ تدفعهم إلى إجابة مختصرة، ولا تدعهم يفتحون الحوار بلا ضابط.</p>
+    </div>
+
+    <div class="box warn">
+      <div class="label">
+        <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2 19 18H1Z" fill="currentColor"/></svg>
+        تنبيه: الأسئلة المفتوحة قد تُضلّل
+      </div>
+      <p>مع مرضى الذهان والهوس والفصام قد تؤدي الأسئلة المفتوحة إلى معلومات غير دقيقة، إذ يشطحون بالحديث ويضيع وقت الجلسة. فيُستخدم هنا أسلوب أكثر تحديدًا.</p>
+    </div>
+
+    <div class="box ex">
+      <div class="label">
+        <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="8.5" fill="currentColor"/></svg>
+        مثال: مع المدمنين وحالات الاعتداء
+      </div>
+      <p>تكون الأسئلة واضحة ومباشرة ومحددة، لتقليل المراوغة والإنكار: «كم تتعاطى؟ وما نوع المادة؟ وكم كميتها؟». وفي حالات الاعتداء الجنسي تكون الأسئلة صريحة ومباشرة، لا تحتمل اللف والدوران، مع مراعاة الحساسية والحرج.</p>
+    </div>
+  </section>
+
+  <!-- 7 -->
+  <section class="unit" id="u7">
+    <div class="unit-head"><div class="badge">7</div><h2>مراحل المقابلة</h2></div>
+    <p>تمر المقابلة بمراحل متتابعة من أولها إلى آخرها. وتتطور العلاقة بين الأخصائي والمريض يومًا بعد يوم، فاللقاء الأول يختلف عن الخامس والعاشر.</p>
+
+    <ol class="flow">
+      <li>
+        <div class="dot">1</div>
+        <h3>الإعداد</h3>
+        <p>مكان خاص وآمن، وترتيب الجو والإضاءة، وتجهيز الأوراق والمقاييس، وتحديد ما سيُناقش.</p>
+      </li>
+      <li>
+        <div class="dot">2</div>
+        <h3>التعارف وكسب الثقة</h3>
+        <p>الانطباع الأول يتكوّن في ثوانٍ قليلة، فيُحسن استثمار البداية بالاستماع والاهتمام وتقبّل المريض.</p>
+      </li>
+      <li>
+        <div class="dot">3</div>
+        <h3>جمع المعلومات</h3>
+        <p>من المستفيد والأسرة والمدرسة والعمل والمقاييس، ثم تكوين فروض حول العوامل المؤثرة في المشكلة.</p>
+      </li>
+      <li>
+        <div class="dot">4</div>
+        <h3>التدخل العلاجي</h3>
+        <p>أسلوب مرن يتناسب مع المريض، ويهدف إلى أن يساعد المريض نفسه لا أن يعتمد على المعالج.</p>
+      </li>
+      <li>
+        <div class="dot">5</div>
+        <h3>ختام المقابلة</h3>
+        <p>تنبيه مسبق بالختام، وتلخيص، وتحديد الخطوة التالية والموعد والواجب المنزلي.</p>
+      </li>
+      <li>
+        <div class="dot">6</div>
+        <h3>التسجيل والتوثيق</h3>
+        <p>تسجيل المعلومات والتدخلات والملاحظات بعد خروج المريض، مع تحديد ما يُركَّز عليه في الجلسة القادمة.</p>
+      </li>
+    </ol>
+
+    <div class="box rule">
+      <div class="label">
+        <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5 18.5 10 10 18.5 1.5 10Z" fill="currentColor"/></svg>
+        قاعدة مهمة: التسجيل بعد الجلسة
+      </div>
+      <p>قد يُسجَّل بعض النقاط السريعة أثناء الجلسة، لكن التفاصيل تُكتب بعد خروج المستفيد، في السجل المخصص أو في ورقة خارجية.</p>
+    </div>
+
+    <div class="box ex">
+      <div class="label">
+        <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="8.5" fill="currentColor"/></svg>
+        مثال: تهيئة الغرفة وصوت التشتيت
+      </div>
+      <p>يُستعمل أحيانًا صوت أبيض خفيف، كأصوات الأمواج أو الموسيقى الهادئة، لتشتيت الأصوات خارج الجلسة وحماية سرية الحوار. وكذلك في غرف الأطفال تُستخدم الألوان والألعاب إذا كان الهدف منها الاستخدام داخل الجلسة، مع الانتباه إلى أن بعض الرسوم قد تخيف الطفل.</p>
+    </div>
+
+    <div class="box story">
+      <div class="label">
+        <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2 18 10 10 18 2 10Z" fill="currentColor" opacity=".5"/><circle cx="10" cy="10" r="3" fill="currentColor"/></svg>
+        من المحاضرة: الطفل المغلق
+      </div>
+      <p>طفل مغلق لا يتعاون، فأحضر المحاضر ألعاب التركيب وصنع منها مسدسًا وأخذ يلعب به مع الطفل. فانفتح الطفل وبدأ يشاركه اللعب والكلام، وبدأت الثقة تُبنى. الدخول إلى عالم الطفل من الجانب الذي يحبه يفتح باب الثقة.</p>
+    </div>
+
+    <div class="box warn">
+      <div class="label">
+        <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2 19 18H1Z" fill="currentColor"/></svg>
+        تنبيه: مراهق يحضر مع أمه
+      </div>
+      <p>لا يُعطى الاهتمام كله للأم أو الأب. فإن سلّم الأخصائي على الأهل وأهمل المراهق، شعر المراهق أن الجلسة ليست له فيبتعد. الأفضل أن يُعامَل كشخص مسؤول أمام أهله، ويُدعى إلى الحديث، ويُسأل عن رأيه.</p>
+    </div>
+  </section>
+
+  <!-- 8 -->
+  <section class="unit" id="u8">
+    <div class="unit-head"><div class="badge">8</div><h2>المحكات الخمسة للمقابلة الناجحة</h2></div>
+    <p>إذا تحققت هذه المحكات الخمسة، فإن الأخصائي يكون قد أتقن إدارة المقابلة:</p>
+    <ol class="criteria">
+      <li><span class="sq">1</span><div><strong>راحة المريض</strong><br>تهيئة المكان والجو الجسدي والنفسي له.</div></li>
+      <li><span class="sq">2</span><div><strong>الحصول على المعلومات</strong><br>جمعها بطريقة صحيحة، بحيث لا تنتهي الجلسة دون فائدة.</div></li>
+      <li><span class="sq">3</span><div><strong>السيطرة على الموقف</strong><br>المحافظة على مسار الجلسة الطبيعي وتوجيهها.</div></li>
+      <li><span class="sq">4</span><div><strong>المحافظة على العلاقة الإكلينيكية</strong><br>ألا تتحول إلى علاقة شخصية، ولا إلى علاقة جافة أو عسكرية.</div></li>
+      <li><span class="sq">5</span><div><strong>الختام الصحيح</strong><br>إنهاء المقابلة بالطريقة المناسبة.</div></li>
+    </ol>
+  </section>
+
+  <!-- 9 -->
+  <section class="unit" id="u9">
+    <div class="unit-head"><div class="badge">9</div><h2>مهارات مساندة</h2></div>
+
+    <div class="cards">
+      <div class="card">
+        <svg class="shape" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="18" fill="var(--ex)"/></svg>
+        <h3>التعاطف لا العطف</h3>
+        <p>التعاطف فهم ما يمر به المريض وإظهار ذلك له. أما العطف فهو الشفقة التي تُضعفه، فلا يبكي الأخصائي معه ولا يشفق عليه.</p>
+      </div>
+      <div class="card">
+        <svg class="shape" viewBox="0 0 44 44" aria-hidden="true"><path d="M22 4 40 40H4Z" fill="var(--rule)"/></svg>
+        <h3>توجيه الحوار</h3>
+        <p>إذا خرج المستفيد عن الموضوع، يعيد الأخصائي الحوار بذكاء إلى الهدف، كأن يقول: «الكلام مهم، ونعود إلى ما اتفقنا عليه».</p>
+      </div>
+      <div class="card">
+        <svg class="shape" viewBox="0 0 44 44" aria-hidden="true"><rect x="4" y="4" width="36" height="36" rx="8" fill="var(--story)"/></svg>
+        <h3>التلخيص</h3>
+        <p>مع الشطحات الطويلة، كالأفكار المتطايرة عند المصاب بالهوس أو الاضطهاد، يُلخَّص الكلام ويُوضَّح ثم يُعاد إلى موضوع الجلسة.</p>
+      </div>
+    </div>
+
+    <div class="box rule">
+      <div class="label">
+        <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5 18.5 10 10 18.5 1.5 10Z" fill="currentColor"/></svg>
+        قواعد مهنية وأخلاقية
+      </div>
+      <ul>
+        <li>تقبّل المريض كما هو، دون حكم على شكله أو كلامه أو سلوكه.</li>
+        <li>مبدأ <strong>«لا ضرر ولا ضرار»</strong>.</li>
+        <li>الالتزام بالسرية وحدود المهنة.</li>
+        <li>لا يقدّم الأخصائي تشخيصًا أو علاجًا دون أن يكون مؤهلًا لذلك.</li>
+      </ul>
+    </div>
+
+    <div class="box def">
+      <div class="label">
+        <svg viewBox="0 0 20 20" aria-hidden="true"><rect x="2.5" y="2.5" width="15" height="15" rx="2" fill="currentColor"/></svg>
+        الاتصال غير اللفظي
+      </div>
+      <p>وضع جسم الأخصائي يُلاحَظ: لا يجلس مديرًا ظهره للمستفيد، ولا شارد الذهن. ويُستحسن أن يكون مرتاحًا، ولباسه مناسبًا للجو، ونظرته صادقة. وقد تكفي نظرة واحدة تُشعر المستفيد بأنه مسموع.</p>
+    </div>
+
+    <div class="box story">
+      <div class="label">
+        <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2 18 10 10 18 2 10Z" fill="currentColor" opacity=".5"/><circle cx="10" cy="10" r="3" fill="currentColor"/></svg>
+        من المحاضرة: كبير السن
+      </div>
+      <p>كبير السن يميل إلى الحديث عن تاريخه وأمجاده. فإذا أبدى الأخصائي الاهتمام والاستماع الجيد، عاد في الجلسة التالية متحمسًا للقاء ومرحّبًا به.</p>
+    </div>
+  </section>
+
+  <!-- 10 -->
+  <section class="unit" id="u10">
+    <div class="unit-head"><div class="badge">10</div><h2>أسئلة للمراجعة وأنشطة تطبيقية</h2></div>
+
+    <h3 style="margin:8px 0 6px">أسئلة للمراجعة</h3>
+    <ol class="qa">
+      <li>عرّف المقابلة الإكلينيكية، واذكر أهم مهارات الاتصال اللازمة لنجاحها.</li>
+      <li>لماذا لا يمكن أن يكون العلاج النفسي بالتوصية وحدها دون مقابلة؟</li>
+      <li>اذكر الوظائف السبع للمقابلة، ومثّل لكل منها.</li>
+      <li>قارن بين المقابلة المقننة والمنظمة والحرة من حيث الضبط والمرونة ومتى تُستخدم.</li>
+      <li>لماذا لا يُستحسن البدء بمقابلة مقننة في الجلسات الأولى؟</li>
+      <li>متى تُستخدم الأسئلة المغلقة، ومتى تُستخدم المفتوحة؟</li>
+      <li>اذكر المحكات الخمسة للمقابلة الناجحة، ووضّح كيف تتحقق في موقف عملي.</li>
+      <li>ما الفرق بين التعاطف والعطف؟ ولماذا يُعد التعاطف من أهم مهارات الأخصائي؟</li>
+      <li>في حالة مراهق يحضر مع أمه، كيف توزع اهتمامك بينهما؟ ولماذا؟</li>
+      <li>ما المعلومات التي يجب تسجيلها بعد انتهاء المقابلة؟</li>
+    </ol>
+
+    <h3 style="margin:18px 0 6px">أنشطة تطبيقية</h3>
+    <div class="activities">
+      <div class="box def">
+        <div class="label">
+          <svg viewBox="0 0 20 20" aria-hidden="true"><rect x="2.5" y="2.5" width="15" height="15" rx="2" fill="currentColor"/></svg>
+          تمرين الإعداد
+        </div>
+        <p>صمّم قائمة تحقق بما يجب تجهيزه قبل مقابلة مع مراهق يعاني من القلق.</p>
+      </div>
+      <div class="box ex">
+        <div class="label">
+          <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="8.5" fill="currentColor"/></svg>
+          تمرين الاستقبال
+        </div>
+        <p>اكتب ثلاث عبارات افتتاحية لاستقبال: طفل، وكبير سن، ومراهق. ما الفروق بينها؟</p>
+      </div>
+      <div class="box rule">
+        <div class="label">
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5 18.5 10 10 18.5 1.5 10Z" fill="currentColor"/></svg>
+          تمرين الأسئلة
+        </div>
+        <p>حوّل السؤال المغلق «هل تنام جيدًا؟» إلى سؤال مفتوح، ثم إلى سؤال مباشر محدد، واشرح متى يُستخدم كل منها.</p>
+      </div>
+      <div class="box story">
+        <div class="label">
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2 18 10 10 18 2 10Z" fill="currentColor" opacity=".5"/><circle cx="10" cy="10" r="3" fill="currentColor"/></svg>
+          تمرين الختام
+        </div>
+        <p>اكتب ختامًا لجلسة افتراضية يشمل التلخيص والخطوة التالية والواجب المنزلي.</p>
+      </div>
+      <div class="box warn">
+        <div class="label">
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2 19 18H1Z" fill="currentColor"/></svg>
+          تمرين التوثيق
+        </div>
+        <p>اكتب ملاحظة إكلينيكية موجزة لجلسة افتراضية، مع الالتزام بالسرية وعدم ذكر الاسم الصريح.</p>
+      </div>
+    </div>
+  </section>
+
+  <p class="note">
+    المحاضرة مبنية على تفريغ التسجيل، وأُعيد ترتيب الكلام في أقسام وعناوين، مع حذف الألفاظ المتكررة والعامية والإبقاء على المعنى. ورد في التفريغ ذكر «سبع خطوات» للمقابلة، وعُرضت هنا ستٌّ مع الإعداد بوصفه مرحلة أولى. أسماء المؤلفين (سول جارفيلد وباركر) كما ذكرها المحاضر، ويُنصح بالرجوع إلى الكتاب المعتمد للمساق (فراج) لتوثيق الاقتباسات كاملة.
+  </p>
+
+</main>
+</body>
+</html>
