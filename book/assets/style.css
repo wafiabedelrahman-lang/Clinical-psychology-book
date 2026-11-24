@@ -1,0 +1,134 @@
+/* ===== Fonts ===== */
+@font-face { font-family: "Noto Naskh Arabic"; font-weight: 400; src: url("fonts/noto-naskh-arabic-arabic-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Noto Naskh Arabic"; font-weight: 700; src: url("fonts/noto-naskh-arabic-arabic-700-normal.woff2") format("woff2"); }
+@font-face { font-family: "Noto Naskh Arabic"; font-weight: 400; src: url("fonts/noto-naskh-arabic-latin-400-normal.woff2") format("woff2"); unicode-range: U+0000-00FF, U+2000-206F; }
+@font-face { font-family: "Noto Naskh Arabic"; font-weight: 700; src: url("fonts/noto-naskh-arabic-latin-700-normal.woff2") format("woff2"); unicode-range: U+0000-00FF, U+2000-206F; }
+@font-face { font-family: "Noto Kufi Arabic"; font-weight: 400; src: url("fonts/noto-kufi-arabic-arabic-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Noto Kufi Arabic"; font-weight: 700; src: url("fonts/noto-kufi-arabic-arabic-700-normal.woff2") format("woff2"); }
+
+:root {
+  --ink: #1d2a3a; --muted: #5b6b78; --rule: #cfdde7;
+  --blue: #1f5f7a; --blue-l: #e6f0f5;
+  --teal: #2b7f78; --teal-l: #e5f3f1;
+  --amber: #b7792a; --amber-l: #fbf1e2;
+  --rose: #a2475e; --rose-l: #f8e9ee;
+  --violet: #5b4f99; --violet-l: #eeecf8;
+  --green: #3f7d3a; --green-l: #e9f4e7;
+}
+
+/* ===== Page setup (paged.js) ===== */
+@page {
+  size: A4;
+  margin: 22mm 20mm 22mm 20mm;
+  @top-center { font-family: "Noto Kufi Arabic"; font-size: 8.5pt; color: #7a8a96; }
+  @bottom-center { content: counter(page); font-family: "Noto Naskh Arabic"; font-size: 10pt; color: #5b6b78; }
+}
+@page cover { margin: 0; @bottom-center { content: none; } }
+@page :first { margin: 0; @bottom-center { content: none; } }
+
+html { direction: rtl; }
+body {
+  font-family: "Noto Naskh Arabic", serif;
+  font-size: 11.6pt; line-height: 1.85; color: var(--ink);
+  text-align: justify; hyphens: none;
+}
+p { margin: 0 0 0.55em; orphans: 2; widows: 2; }
+strong { color: #10253a; }
+
+/* ===== Headings ===== */
+h1, h2, h3, h4 { font-family: "Noto Kufi Arabic", sans-serif; line-height: 1.5; text-align: right; break-after: avoid; }
+h1.chapter {
+  break-before: page;
+  font-size: 22pt; color: var(--blue); margin: 18mm 0 8mm; padding-bottom: 6mm;
+  border-bottom: 3px solid var(--blue);
+}
+h2.lecture {
+  break-before: page; -webkit-print-color-adjust: exact;
+  font-size: 15.5pt; color: #fff; background: var(--blue);
+  padding: 3mm 5mm; border-radius: 3mm; margin: 0 0 6mm;
+}
+h3 { font-size: 12.8pt; color: var(--blue); margin: 7mm 0 2.5mm; border-inline-start: 4px solid var(--teal); padding-inline-start: 3mm; }
+h4 { font-size: 11.5pt; color: var(--teal); margin: 5mm 0 2mm; }
+
+ul, ol { margin: 0 0 0.7em; padding-inline-start: 1.4em; }
+li { margin-bottom: 0.2em; }
+
+/* ===== Tables ===== */
+table { width: 100%; border-collapse: collapse; margin: 3mm 0 5mm; font-size: 10.2pt; line-height: 1.65; break-inside: auto; }
+thead { display: table-header-group; }
+tr { break-inside: avoid; }
+th { background: var(--blue); color: #fff; font-family: "Noto Kufi Arabic"; font-weight: 700; font-size: 9.6pt; padding: 2mm 2.5mm; text-align: right; }
+td { border-bottom: 1px solid var(--rule); padding: 1.8mm 2.5mm; vertical-align: top; text-align: right; }
+tbody tr:nth-child(even) td { background: #f6f9fb; }
+
+/* ===== Figures ===== */
+figure { margin: 4mm 0 6mm; text-align: center; break-inside: avoid; }
+figure svg { max-width: 100%; height: auto; }
+figcaption { font-family: "Noto Kufi Arabic"; font-size: 9.4pt; color: var(--muted); margin-top: 2mm; }
+figcaption .fignum { color: var(--blue); font-weight: 700; }
+
+/* ===== Boxes ===== */
+.chapter-card, .objectives, .field, .book, .enrich, .key, .summary, .questions, .activity, .note, .caution {
+  border-radius: 3mm; padding: 3.5mm 5mm 2.5mm; margin: 4mm 0 5mm; break-inside: avoid;
+  border-inline-start: 5px solid; font-size: 10.9pt;
+}
+.chapter-card { background: var(--blue-l); border-color: var(--blue); font-size: 11.5pt; }
+.objectives  { background: #f4f7f9; border-color: var(--slate, #4a5a68); }
+.field       { background: var(--amber-l); border-color: var(--amber); }
+.book        { background: var(--teal-l); border-color: var(--teal); }
+.enrich      { background: var(--violet-l); border-color: var(--violet); }
+.key         { background: var(--blue-l); border-color: var(--blue); }
+.summary     { background: var(--green-l); border-color: var(--green); }
+.questions   { background: #f6f6f6; border-color: #8a96a0; }
+.activity    { background: var(--rose-l); border-color: var(--rose); }
+.note        { background: #fffaf0; border-color: #d9a21b; }
+.caution     { background: #fdeceb; border-color: #c0392b; }
+.summary, .questions { break-inside: auto; }
+
+/* ===== Front matter ===== */
+.cover { page: cover; height: 296mm; width: 210mm; position: relative; overflow: hidden; break-after: page;
+  background: linear-gradient(165deg, #123b4f 0%, #1f5f7a 55%, #2b7f78 100%); color: #fff; }
+.cover .band { position: absolute; inset: auto 0 0 0; height: 70mm; background: rgba(255,255,255,0.07); }
+.cover .inner { position: absolute; inset: 30mm 22mm 24mm 22mm; display: flex; flex-direction: column; }
+.cover .kicker { font-family: "Noto Kufi Arabic"; font-size: 11pt; opacity: .85; letter-spacing: .3px; }
+.cover h1.title { font-family: "Noto Kufi Arabic"; font-size: 38pt; line-height: 1.35; margin: 14mm 0 4mm; color: #fff; border: 0; }
+.cover .subtitle { font-family: "Noto Kufi Arabic"; font-size: 14pt; line-height: 1.8; opacity: .95; max-width: 150mm; }
+.cover .rule { width: 50mm; height: 3px; background: #f0c27b; margin: 9mm 0; }
+.cover .art { margin: 4mm 0 0; }
+.cover .author { margin-top: auto; font-family: "Noto Kufi Arabic"; }
+.cover .author .name { font-size: 19pt; font-weight: 700; }
+.cover .author .role { font-size: 11pt; line-height: 1.9; opacity: .92; }
+.cover .edition { font-size: 10pt; opacity: .8; margin-top: 6mm; }
+
+.front { page: front; }
+@page front { @top-center { content: none; } }
+.chap > h1.chapter:first-child { margin-top: 10mm; }
+.titlepage { break-after: page; text-align: center; padding-top: 40mm; }
+.titlepage h1 { font-size: 26pt; color: var(--blue); border: 0; text-align: center; margin-bottom: 4mm; }
+.titlepage .sub { font-family: "Noto Kufi Arabic"; color: var(--muted); font-size: 12pt; }
+.titlepage .by { margin-top: 30mm; font-family: "Noto Kufi Arabic"; font-size: 15pt; font-weight: 700; color: var(--ink); }
+.titlepage .role { font-family: "Noto Kufi Arabic"; color: var(--muted); font-size: 10.5pt; line-height: 2; }
+.titlepage .meta { margin-top: 40mm; font-size: 10pt; color: var(--muted); line-height: 2; }
+
+h1.fronthead { font-size: 20pt; color: var(--blue); border-bottom: 3px solid var(--blue); padding-bottom: 4mm; margin: 0 0 6mm; break-before: page; }
+
+/* Table of contents */
+.toc ul { list-style: none; padding: 0; margin: 0; }
+.toc li { margin: 0; }
+.toc a { color: var(--ink); text-decoration: none; display: flex; align-items: baseline; gap: 2mm; }
+.toc a .pg { color: var(--muted); min-width: 9mm; text-align: left; }
+.toc a .dots { flex: 1; border-bottom: 1px dotted #b8c7d2; transform: translateY(-1.2mm); }
+.toc .toc-ch > a { font-family: "Noto Kufi Arabic"; font-weight: 700; color: var(--blue); font-size: 11.5pt; margin-top: 4mm; padding-top: 1.5mm; border-top: 1px solid var(--rule); }
+.toc .toc-lec > a { padding-inline-start: 7mm; font-size: 10.8pt; line-height: 2; }
+.toc .toc-back > a { font-family: "Noto Kufi Arabic"; font-weight: 700; color: var(--blue); font-size: 11.5pt; margin-top: 4mm; }
+
+/* lecture index table */
+.lecture-index td:first-child, .lecture-index th:first-child { width: 14mm; text-align: center; }
+.lecture-index td.ch { font-family: "Noto Kufi Arabic"; color: var(--blue); font-weight: 700; }
+
+/* glossary */
+.glossary table td:first-child { font-family: "Noto Naskh Arabic"; direction: ltr; text-align: left; width: 45%; }
+.refs p { padding-inline-start: 8mm; text-indent: -8mm; font-size: 10.4pt; }
+.refs .ltr { direction: ltr; text-align: left; padding-left: 8mm; padding-right: 0; text-indent: -8mm; }
+
+.mk { font-size: 1px; color: transparent; letter-spacing: 0; }
