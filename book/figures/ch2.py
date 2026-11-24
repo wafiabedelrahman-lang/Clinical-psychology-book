@@ -164,7 +164,7 @@ for i, (n_, t, d, c) in enumerate(levels):
     f.text(840, (y1 + y2) / 2 - 12, t, size=14, weight=700, color=dark, anchor="start")
     f.text(840, (y1 + y2) / 2 + 12, d, size=11.5, anchor="start")
     f.line(x2b + 6, (y1 + y2) / 2, 560, (y1 + y2) / 2, color=dark, sw=1, dash="3 4")
-f.text(110, 345, "كلما ارتفع المستوى قلّ عدد المحتاجين وزاد التخصص", size=11.5, color=MUTED)
+f.text(300, 348, "كلما ارتفع المستوى قلّ عدد المحتاجين وزاد التخصص", size=11.5, color=MUTED)
 f.save("fig-2-9-iasc.svg")
 
 # 2-10 pathway ------------------------------------------------------------------------------

@@ -59,11 +59,11 @@ for i, (t, b, sk, c) in enumerate(steps):
     x = 860 - 30 - (i + 1) * 260
     y = 220 - i * 80
     dark, light = C[c]
-    f.rect(x, y, 255, 310 - y, c, r=8)
+    f.rect(x, y, 255, 316 - y, c, r=8)
     f.add(f'<rect x="{x}" y="{y}" width="255" height="34" rx="8" fill="{dark}"/>')
     f.text(x + 127, y + 17, t, size=15, color="#fff", weight=700)
-    f.text(x + 127, y + 62, b, size=12)
-    f.text(x + 127, y + 104, sk, size=11.5, color=dark, weight=700)
+    f.text(x + 127, (y + 34 + 296) / 2, b, size=12)
+    f.text(x + 127, 300, sk, size=11.5, color=dark, weight=700)
 f.text(700, 90, "لا ننتقل إلى الدرجة التالية\nقبل أن يتحقق هدف الدرجة\nالتي نقف عليها", size=12.5, color=MUTED)
 f.line(30, 322, 830, 322, color=MUTED, sw=1)
 f.text(560, 322 - 8, "", size=1)
@@ -121,7 +121,7 @@ f.line(0, 110, 860, 110, color=C["blue"][0], sw=2)
 f.text(830, 98, "خط الماء", size=11.5, color=C["blue"][0], anchor="start")
 f.add(f'<polygon points="430,20 500,110 360,110" fill="#ffffff" stroke="{C["blue"][0]}" stroke-width="2"/>')
 f.text(430, 80, "الكلمات", size=14, weight=700, color=C["blue"][0])
-f.add(f'<polygon points="360,110 500,110 640,330 220,330" fill="#ffffff" fill-opacity="0.7" stroke="{C["blue"][0]}" stroke-width="2"/>')
+f.add(f'<polygon points="362,110 498,110 740,330 120,330" fill="#ffffff" fill-opacity="0.7" stroke="{C["blue"][0]}" stroke-width="2"/>')
 below = ["تعبيرات الوجه · الابتسامة · العينان · الدمعة",
          "حركات اليدين والرجلين · الجلسة",
          "نبرة الصوت · علوّه · سرعته · الصمت",
