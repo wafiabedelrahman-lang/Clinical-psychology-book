@@ -29,6 +29,8 @@ de Jong, K. (2011). *Psychosocial and mental health interventions in areas of ma
 ::: {.refs .ltr dir="ltr"}
 ## Other references
 
+A-Tjak, J. G. L., Davis, M. L., Morina, N., Powers, M. B., Smits, J. A. J., & Emmelkamp, P. M. G. (2015). A meta-analysis of the efficacy of acceptance and commitment therapy for clinically relevant mental and physical health problems. *Psychotherapy and Psychosomatics, 84*(1), 30–36.
+
 Albaum, C., et al. (2025). Safety planning interventions for suicide prevention in children and adolescents: A systematic review and meta-analysis. *JAMA Pediatrics*.
 
 AlHadethe, A., et al. (2015). [Randomised trial comparing EFT with narrative exposure therapy among Iraqi students; cited in Lecture 8 — full details to be completed from the original].
@@ -53,11 +55,15 @@ Beck, A. T., Steer, R. A., & Brown, G. K. (1996). *Manual for the Beck Depressio
 
 Beier, E. G., & Sternberg, D. P. (1977). Marital communication: Subtle cues between newlyweds. *Journal of Communication, 27*(3), 92–97.
 
+Bethlehem Psychiatric Hospital. (n.d.). In *Wikipedia*. Retrieved November 2026.
+
 Blevins, C. A., Weathers, F. W., Davis, M. T., Witte, T. K., & Domino, J. L. (2015). The Posttraumatic Stress Disorder Checklist for DSM-5 (PCL-5). *Journal of Traumatic Stress, 28*(6), 489–498.
 
 Bloom, M. L. (2022). *Release of updated & revised DSM-5-Text Revision (DSM-5-TR)*. National Board for Certified Counselors.
 
 Bryan, C. J., et al. (2017). Effect of crisis response planning vs. contracts for safety on suicide risk in U.S. Army soldiers: A randomized clinical trial. *Journal of Affective Disorders, 212*, 64–72.
+
+Clinton-Lisell, V. (2022). Listening ears or reading eyes: A meta-analysis of reading and listening comprehension comparisons. *Review of Educational Research*. https://doi.org/10.3102/00346543211060871
 
 Carkhuff, R. R. (1969). *Helping and human relations* (Vols. 1–2). Holt, Rinehart & Winston.
 
@@ -69,11 +75,15 @@ Church, D., et al. (2013). [Trial of EFT with veterans; cited in Lecture 8 — f
 
 Covey, S. R. (1989). *The 7 habits of highly effective people*. Free Press.
 
+Cuijpers, P., Miguel, C., Harrer, M., Plessen, C. Y., Ciharova, M., Ebert, D., & Karyotaki, E. (2023). Cognitive behavior therapy vs. control conditions, other psychotherapies, pharmacotherapies and combined treatment for depression: A comprehensive meta-analysis including 409 trials with 52,702 patients. *World Psychiatry, 22*(1), 105–115.
+
 Dazzi, T., Gribble, R., Wessely, S., & Fear, N. T. (2014). Does asking about suicide and related behaviours induce suicidal ideation? *Psychological Medicine, 44*(16), 3361–3363.
 
 Doran, G. T. (1981). There's a S.M.A.R.T. way to write management's goals and objectives. *Management Review, 70*(11), 35–36.
 
 Egan, G., & Reese, R. J. (2019). *The skilled helper* (11th ed.). Cengage.
+
+El Sarraj, Eyad (1944–). (n.d.). In *Encyclopedia.com*.
 
 Elliott, R., Bohart, A. C., Watson, J. C., & Murphy, D. (2018). Therapist empathy and client outcome: An updated meta-analysis. *Psychotherapy, 55*(4), 399–410.
 
@@ -109,6 +119,8 @@ Kroenke, K., Spitzer, R. L., & Williams, J. B. W. (2001). The PHQ-9: Validity of
 
 Macneil, C. A., Hasty, M. K., Conus, P., & Berk, M. (2012). Is diagnosis enough to guide interventions in mental health? Using case formulation in clinical practice. *BMC Medicine, 10*, 111.
 
+Kuyken, W., et al. (2016). Efficacy of mindfulness-based cognitive therapy in prevention of depressive relapse: An individual patient data meta-analysis from randomized trials. *JAMA Psychiatry*.
+
 Mahl, G. F. (1956). Disturbances and silences in the patient's speech in psychotherapy. *Journal of Abnormal and Social Psychology, 53*(1), 1–15.
 
 Manley, M. R. S. (2000). Psychiatric interview, history, and mental status examination. In B. J. Sadock & V. A. Sadock (Eds.), *Kaplan & Sadock's comprehensive textbook of psychiatry* (7th ed.). Lippincott Williams & Wilkins.
@@ -123,6 +135,8 @@ Murphy, D. H., Hoover, K. M., Agadzhanyan, K., Kuehn, J. C., & Castel, A. D. (20
 
 National Institute for Health and Care Excellence. (2022). *Self-harm: Assessment, management and preventing recurrence* (NG225).
 
+NHS England. (n.d.). *NHS Talking Therapies: Service standards; NHS Talking Therapies manual*.
+
 Nock, M. K., & Prinstein, M. J. (2004). A functional approach to the assessment of self-mutilative behavior. *Journal of Consulting and Clinical Psychology, 72*(5), 885–890.
 
 Nuij, C., et al. (2021). Safety planning-type interventions for suicide prevention: Meta-analysis. *The British Journal of Psychiatry, 219*(2), 419–426.
@@ -136,6 +150,8 @@ Passmore, J., & Rowson, T. S. (2019). Neuro-linguistic programming: A critical r
 Posner, K., et al. (2011). The Columbia–Suicide Severity Rating Scale: Initial validity and internal consistency findings. *American Journal of Psychiatry, 168*(12), 1266–1277.
 
 Rogers, C. R. (1957). The necessary and sufficient conditions of therapeutic personality change. *Journal of Consulting Psychology, 21*(2), 95–103.
+
+Shaheen, Ashour, Joma, & Abuzerr. (2025). Repercussions of the destruction of Gaza's sole psychiatric hospital. *Eastern Mediterranean Health Journal, 31*(2), 79–80. https://doi.org/10.26719/2025.31.2.79
 
 Sharpley, C. F. (1984). Predicate matching in NLP: A review of research on the preferred representational system. *Journal of Counseling Psychology, 31*(2), 238–248.
 
@@ -152,6 +168,8 @@ Stapleton, P., et al. (2023). [Meta-analyses of EFT; cited in Lecture 8 — full
 Pfund, R. A., Boness, C. L., & Tolin, D. F. (2024). Commentary: Emotional freedom techniques for treating post traumatic stress disorder: An updated systematic review and meta-analysis. *Frontiers in Psychology, 15*.
 
 Storr, A. (1979). *The art of psychotherapy*. Secker & Warburg / Heinemann.
+
+The Lancet. (2014). Eyad Rajab El-Sarraj [Obituary]. *The Lancet*.
 
 Topp, C. W., Østergaard, S. D., Søndergaard, S., & Bech, P. (2015). The WHO-5 Well-Being Index: A systematic review of the literature. *Psychotherapy and Psychosomatics, 84*(3), 167–176.
 
