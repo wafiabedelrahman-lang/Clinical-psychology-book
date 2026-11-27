@@ -69,7 +69,7 @@ figcaption { font-family: "Noto Kufi Arabic"; font-size: 9.4pt; color: var(--mut
 figcaption .fignum { color: var(--blue); font-weight: 700; }
 
 /* ===== Boxes ===== */
-.chapter-card, .objectives, .field, .book, .enrich, .key, .summary, .questions, .activity, .note, .caution {
+.chapter-card, .objectives, .field, .book, .enrich, .key, .summary, .questions, .activity, .note, .caution, .clinic, .exam, .mcq {
   border-radius: 3mm; padding: 3.5mm 5mm 2.5mm; margin: 4mm 0 5mm; break-inside: avoid;
   border-inline-start: 5px solid; font-size: 10.9pt;
 }
@@ -85,6 +85,20 @@ figcaption .fignum { color: var(--blue); font-weight: 700; }
 .note        { background: #fffaf0; border-color: #d9a21b; }
 .caution     { background: #fdeceb; border-color: #c0392b; }
 .summary, .questions { break-inside: auto; }
+/* Clinical connection: white box, navy frame, header strip */
+.clinic { background: #fff; border: 1.4px solid var(--blue); border-inline-start: 5px solid var(--blue); padding-top: 0; }
+.clinic > p:first-child { background: var(--blue); color: #fff; margin: 0 -5mm 2.5mm; padding: 1.8mm 5mm;
+  font-family: "Noto Kufi Arabic"; font-size: 10.4pt; }
+.clinic > p:first-child strong { color: #fff; }
+.clinic ul { margin: 1mm 0 2mm; }
+/* Exam tip: dashed frame */
+.exam { background: #fff; border: 1.6px dashed #4a5a68; border-inline-start: 5px solid #4a5a68; }
+.exam strong:first-child::before { content: "★ "; }
+/* Multiple choice */
+.mcq { background: #f6f6f6; border-color: #8a96a0; break-inside: auto; }
+.mcq ol > li { margin-bottom: 1.5mm; break-inside: avoid; }
+.mcq ol ul { list-style: none; padding-inline-start: 4mm; margin: .5mm 0 0; columns: 2; column-gap: 6mm; }
+.mcq ol ul li { margin: 0; }
 
 /* ===== Front matter ===== */
 .cover { page: cover; height: 295mm; width: 210mm; position: relative; overflow: hidden; break-after: page;
