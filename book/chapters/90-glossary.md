@@ -94,7 +94,7 @@
 | Reliability / Validity / Construct Validity | الثبات / الصدق / الصدق البنائي |
 | Standardization / Norms | التقنين / المعايير |
 | Case Formulation / Case Conceptualization | الصياغة الإكلينيكية / تصور الحالة |
-| Predisposing / Precipitating / Perpetuating / Protective | المهيِّئة / المفجِّرة / المديمة / الحامية (4Ps) |
+| Presenting / Predisposing / Precipitating / Perpetuating / Protective | المشكلة الحالية / المهيِّئة / المفجِّرة / المديمة / الحامية (5Ps) |
 | Screening Tool | أداة الفرز |
 | Cut-off / Sensitivity / Specificity | نقطة القطع / الحساسية / النوعية |
 | Self-report / Informant | التقرير الذاتي / تقدير الآخرين |

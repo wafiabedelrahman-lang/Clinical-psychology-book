@@ -17,10 +17,10 @@ OUT_PDF = ROOT / "كتاب_علم_النفس_الإكلينيكي_د_عبد_ال
 AUTHOR = "د. عبد الرحمن جمعة وافي"
 ROLE = ["محاضر متعاون بقسم علم النفس – جامعة الأقصى", "دكتوراه علم النفس الإكلينيكي"]
 TITLE = "علم النفس الإكلينيكي"
-SUBTITLE = "المقابلة والتقييم والتشخيص وإدارة الحالة في الممارسة الميدانية"
+SUBTITLE = "المقابلة والتقييم والتشخيص وإدارة الحالة والإشراف في الممارسة الميدانية"
 YEAR = "2026"
 
-FRONT = ["00-preface.md"]
+FRONT = ["00-preface.md", "00b-colors.md"]
 CHAPTERS = [
     "01-introduction.md",
     "02-psychologist-team.md",
@@ -28,6 +28,7 @@ CHAPTERS = [
     "04-case-management.md",
     "05-diagnosis-assessment.md",
     "06-suicide-risk.md",
+    "07-supervision.md",
 ]
 BACK = ["89-appendix.md", "90-glossary.md", "91-references.md"]
 
@@ -46,6 +47,7 @@ LECTURES = [
     (11, "التشخيص النفسي والصياغة الإكلينيكية", 5, ""),
     (12, "الاختبارات والمقاييس النفسية", 5, ""),
     (13, "تقييم خطر الانتحار", 6, ""),
+    (14, "الإشراف الإكلينيكي ورعاية الأخصائي", 7, ""),
 ]
 CH_NAMES = {}
 
@@ -74,7 +76,7 @@ def inline_figures(html: str) -> str:
         block = m.group(0)
         fid = re.search(r'id="fig:([\d-]+)"', block)
         src = re.search(r'src="([^"]+\.svg)"', block)
-        cap = re.search(r"<figcaption>(.*?)</figcaption>", block, re.S)
+        cap = re.search(r"<figcaption[^>]*>(.*?)</figcaption>", block, re.S)
         num = fid.group(1) if fid else ""
         caption = cap.group(1) if cap else ""
         label = f'<span class="fignum">الشكل {num}:</span> ' if num else ""
@@ -121,7 +123,7 @@ def cover_html():
   <div class="sub">{SUBTITLE}</div>
   <div class="by">تأليف<br>{AUTHOR}</div>
   <div class="role">{"<br>".join(ROLE)}</div>
-  <div class="meta">كتاب المساق: يجمع محاضرات المساق الثلاث عشرة في ستة فصول<br>الطبعة الأولى {YEAR}</div>
+  <div class="meta">كتاب المساق: يجمع محاضرات المساق الأربع عشرة في سبعة فصول<br>الطبعة الأولى {YEAR}</div>
 </section>"""
 
 
@@ -135,6 +137,7 @@ def toc_html(items, pages=None):
 
     out = ['<h1 class="fronthead" id="toc">فهرس المحتويات</h1><nav class="toc"><ul>']
     out.append(entry("toc-back", "preface", "مقدمة الكتاب"))
+    out.append(entry("toc-back", "colors", "دليل الألوان في الكتاب"))
     out.append(entry("toc-back", "lecture-index", "فهرس المحاضرات"))
     for kind, hid, text in items:
         out.append(entry({"ch": "toc-ch", "lec": "toc-lec", "back": "toc-back"}[kind], hid, text))
@@ -236,7 +239,7 @@ def main():
         out.write_text(html, encoding="utf-8")
 
     # pass 1: placeholder page numbers (same width) -> find real pages -> pass 2
-    ids_titles = [("preface", "مقدمة الكتاب"), ("lecture-index", "فهرس المحاضرات")] + [(h, t) for _, h, t in items]
+    ids_titles = [("preface", "مقدمة الكتاب"), ("colors", "دليل الألوان"), ("lecture-index", "فهرس المحاضرات")] + [(h, t) for _, h, t in items]
     write({h: "000" for h, _ in ids_titles}, markers=True)
     sh(["node", str(BOOK / "render.js"), str(out), str(OUT_PDF)])
     pages = heading_pages(OUT_PDF)

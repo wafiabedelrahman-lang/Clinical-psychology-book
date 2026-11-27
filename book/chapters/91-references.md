@@ -17,6 +17,10 @@
 
 وافي، عبد الرحمن جمعة. (2026). *محاضرات مساق علم النفس الإكلينيكي* [محاضرات مسجلة وأدلة مصورة]. قسم علم النفس، جامعة الأقصى.
 
+برنامج التدريب على الإشراف المهني والكوتشينغ في المهن المساعدة. (2013). *مقدمة في الإشراف المهني* (المساق الأول) [مادة تدريبية]. الأكاديمية الدولية في برلين (INA) وجامعة سيغموند فرويد الخاصة في برلين، بالتعاون مع برنامج غزة للصحة النفسية.
+
+أطباء العالم (MdM)، مصر. (2018). *دليل التدريب على الصحة النفسية* (النسخة العربية).
+
 Humanity & Inclusion (HI). (2024, February). *Standard operating procedures (SOPs) for the integration of MHPSS activities in rehabilitation services for multidisciplinary rehabilitation teams (MDRT): Intervention methodology*. (ملحق كتاب المساق).
 
 ## الأدلة الدولية المرفقة
@@ -174,6 +178,76 @@ The Lancet. (2014). Eyad Rajab El-Sarraj [Obituary]. *The Lancet*.
 Topp, C. W., Østergaard, S. D., Søndergaard, S., & Bech, P. (2015). The WHO-5 Well-Being Index: A systematic review of the literature. *Psychotherapy and Psychosomatics, 84*(3), 167–176.
 
 van Heugten-van der Kloet, D., Boonstra, A., Trouk, N., & ten Brinke, A. (2026). An exploratory comparison of IEMT- versus EMDR-directed eye movements. *Journal of Evidence-Based Psychotherapies, 26*(1), 1–18.
+
+American Psychological Association. (2014). *Guidelines for clinical supervision in health service psychology*.
+
+Atiya, M. H., & Awad, H. M. (2026). [Quasi-experimental study of a Discrimination Model supervisory program for psychologists in Gaza]. *Dirasat: Educational Sciences, 53*(2). University of Jordan.
+
+Bernard, J. M. (1979). Supervisor training: A discrimination model. *Counselor Education and Supervision, 19*, 60–68.
+
+Bernard, J. M., & Goodyear, R. K. (2014). *Fundamentals of clinical supervision*. Pearson.
+
+Center for Mind-Body Medicine. (2024). *Hope and healing in the depths of war*. cmbm.org
+
+Chen, A., et al. (n.d.). Delivering psychotherapy when there is no "post": The Healing for Gaza Global Clinic's model for care in conditions of ongoing violence. *Journal of Traumatic Stress*. doi:10.1002/jts.70121
+
+Clinton Foundation. (2007). *Healing the wounds of Gaza's war traumatized children* (Clinton Global Initiative commitment).
+
+Clinton Foundation. (2024). *Hope & healing: Addressing population-wide trauma in Gaza* (Clinton Global Initiative commitment).
+
+Cook, R. M., et al. (2021). Post-degree clinical supervision for licensure: Occurrence of inadequate and harmful experiences among counselors. *The Clinical Supervisor*.
+
+Ellis, M. V., et al. (2014). Inadequate and harmful clinical supervision. *The Counseling Psychologist, 42*(4), 434–472.
+
+Ellis, M. V., et al. (2015). A comparative study of clinical supervision in the Republic of Ireland and the United States. *Journal of Counseling Psychology*.
+
+Falender, C. A., & Shafranske, E. P. (2021). *Clinical supervision: A competency-based approach* (2nd ed.). American Psychological Association.
+
+Gaza Community Mental Health Programme. (2024a, October 3). *Supervision and self-care sessions for workers in local partner institutions* [news].
+
+Gaza Community Mental Health Programme. (2024b). *Nine months of Israel's war on Gaza: The mental health impacts and the GCMHP's response (October 2023–June 2024)*.
+
+Gaza Community Mental Health Programme. (2025, October). *Mental health crisis: Two years living through the genocide*.
+
+Gaza Community Mental Health Programme. (2026, August 12). *GCMHP conducted professional supervision sessions for staff* [news].
+
+Hamamra, B., Shehab, E., Mahamid, F., & Hassouna, B. (2026). Witnessing trauma: Professional erosion and the emotional burden on health providers in Gaza. *European Journal of Trauma & Dissociation, 10*(2), 100659.
+
+Hamid, A., et al. (2020). Displaced Syrian mental health workers: An investigation of professional quality of life. *Journal of Refugee Studies*.
+
+Hawkins, P., & Shohet, R. (2012). *Supervision in the helping professions* (4th ed.).
+
+Hutman, H., et al. (2023). Supervisees' perspectives of inadequate, harmful, and exceptional clinical supervision: Are we listening? *The Counseling Psychologist*.
+
+Kurt, G., et al. (2025). Testing the role of online group-based supervision for local humanitarian workers following a crisis: A mixed-methods longitudinal study. *PLOS Global Public Health*.
+
+Kühne, F., et al. (2019). Empirical research in clinical supervision: A systematic review and suggestions for future studies. *BMC Psychology*.
+
+Medical Aid for Palestinians. (2024). *Job description: MHPSS Supervisor (Gaza / Middle Area)*.
+
+Milne, D. L., & Watkins, C. E. (2014). Defining and understanding clinical supervision. In *The Wiley international handbook of clinical supervision* (pp. 1–19). Wiley.
+
+Office for Psychosocial Issues. (2010, December). *The five basic axioms of communication theory according to Paul Watzlawick* (Supervision training).
+
+Perera, C., et al. (2021). Towards an integrated model for supervision for mental health and psychosocial support in humanitarian emergencies. *PLoS ONE, 16*(10), e0256077.
+
+Roberts, F., et al. (2021). The prevalence of burnout and secondary traumatic stress in professionals and volunteers working with forcibly displaced people: A systematic review and two meta-analyses. *Journal of Traumatic Stress*.
+
+Ryan, M., et al. (2023). The acceptability, appropriateness, and feasibility of implementing supportive supervision within humanitarian contexts: A qualitative study. *SSM – Mental Health*.
+
+Schreyer, B., et al. (2025). The effects of clinical supervision on supervisees and patient outcomes in psychotherapy: A systematic review and meta-analysis. *Frontiers in Psychiatry*.
+
+Snowdon, D. A., et al. (2017). Does clinical supervision of healthcare professionals improve effectiveness of care and patient experience? A systematic review. *BMC Health Services Research*.
+
+Sutton, L., et al. (2022). The contribution of organisational factors to vicarious trauma in mental health professionals: A systematic review and narrative synthesis. *European Journal of Psychotraumatology*.
+
+Travers, Á., et al. (2022). *International Journal of Mental Health Systems, 16*, 11.
+
+van der Veer, G., de Jong, K., & Lanser, J. (2004). *International Journal of Mental Health and Counselling in Areas of Armed Conflict, 2*(2), 118–129.
+
+Watkins, C. E., Jr. (2019). What do clinical supervision research reviews tell us? Surveying the last 25 years. *Counselling and Psychotherapy Research*.
+
+Watzlawick, P., Beavin, J. H., & Jackson, D. D. (1967). *Pragmatics of human communication*. W. W. Norton.
 
 Wang, Y.-P., & Gorenstein, C. (2013). Psychometric properties of the Beck Depression Inventory-II: A comprehensive review. *Brazilian Journal of Psychiatry, 35*(4), 416–431.
 
